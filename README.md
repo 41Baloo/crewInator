@@ -63,12 +63,12 @@ gT();
 
 #### **Linux**
 ```
-./main -crewID=YOUR_CREW_ID -firstRid=FIRST_PERSON_RID -secondRid=SECOND_PERSON_RID -token=YOUR_BEARER_TOKEN
+./crewInator -crewID=YOUR_CREW_ID -firstRid=FIRST_PERSON_RID -secondRid=SECOND_PERSON_RID -token=YOUR_BEARER_TOKEN
 ```
 
 #### **Windows**
 ```
-main -crewID=YOUR_CREW_ID -firstRid=FIRST_PERSON_RID -secondRid=SECOND_PERSON_RID -token=YOUR_BEARER_TOKEN
+crewInator -crewID=YOUR_CREW_ID -firstRid=FIRST_PERSON_RID -secondRid=SECOND_PERSON_RID -token=YOUR_BEARER_TOKEN
 ```
 
 ### **Credits**
@@ -83,6 +83,7 @@ This method is timing-sensitive, so it may not always work. However, using CrewI
 - There’s a typo in your crew ID.
 - The Rockstar IDs you provided aren’t in the crew.
 - Your Bearer Token expired (refresh Social Club and get a new one).
+- Your internet is slow/laggy
 
 ---
 
