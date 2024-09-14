@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"os"
 	"runtime"
 	"strings"
 	"sync"
@@ -169,7 +168,7 @@ func main() {
 
 	if !strings.HasPrefix(bearerToken, "eyJ") { // 'eyJ' is base64 for '{"'
 		fmt.Println(red("Your input does not seem to be a BearerToken. Make sure you copied the JavaScript's output correctly. BearerTokens start with 'eyJ'."))
-		os.Exit(1)
+		select {}
 	}
 
 	fmt.Println()
@@ -183,7 +182,7 @@ func main() {
 
 	if err != nil {
 		fmt.Println(red(fmt.Sprintf("Failed to do promotions: %s", err.Error())))
-		os.Exit(1)
+		select {}
 	}
 
 	fmt.Println(green("Promotion requests sent. Depending on timing, multiple leaders may be promoted."))
