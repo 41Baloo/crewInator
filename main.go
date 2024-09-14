@@ -47,8 +47,6 @@ func doPromotion(wg *sync.WaitGroup, url string, token string) {
 		log.Printf("Promotion %s failed: Status Code: %d, Response: %s", url, statusCode, body)
 		return
 	}
-
-	log.Printf("Promotion %s success: Response: %s", url, statusCode, body)
 }
 
 func getPromotionUrl(crewID int, rid int) string {
