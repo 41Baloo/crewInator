@@ -57,12 +57,12 @@ func handleCrewPromotion(crewName string, bearerToken string) error {
 	crewName = strings.ReplaceAll(crewName, " ", "_")
 	bearerToken = "Bearer " + bearerToken
 
-	basicCrewInfo, err := socialclub.GetBasicCrewInfo(crewName)
+	basicCrewInfo, err := socialclub.GetBasicCrewInfo(crewName, bearerToken)
 	if err != nil || !basicCrewInfo.Status {
 		return errors.New("failed to convert crew name to crewID")
 	}
 
-	crewHierarchy, err := socialclub.GetCrewHierarchy(basicCrewInfo.CrewID)
+	crewHierarchy, err := socialclub.GetCrewHierarchy(basicCrewInfo.CrewID, bearerToken)
 	if err != nil || !crewHierarchy.Status {
 		return errors.New("failed to fetch crew hierarchy")
 	}

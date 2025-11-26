@@ -14,13 +14,14 @@ var (
 	}
 )
 
-func GetCrewHierarchy(crewID int) (CrewHierarchy, error) {
+func GetCrewHierarchy(crewID int, token string) (CrewHierarchy, error) {
 	req, err := http.NewRequest("GET", fmt.Sprintf("https://scapi.rockstargames.com/crew/ranksWithMembership?crewId=%d&onlineService=sc&searchTerm=&memberCountToRetrieve=5", crewID), nil)
 	if err != nil {
 		return CrewHierarchy{}, err
 	}
 
 	req.Header.Set("X-Requested-With", "XMLHttpRequest")
+	req.Header.Set("Authorization", token)
 
 	resp, err := webClient.Do(req)
 	if err != nil {
@@ -42,13 +43,14 @@ func GetCrewHierarchy(crewID int) (CrewHierarchy, error) {
 	return crewHierarchy, nil
 }
 
-func GetBasicCrewInfo(name string) (CrewBasicInfo, error) {
+func GetBasicCrewInfo(name string, token string) (CrewBasicInfo, error) {
 	req, err := http.NewRequest("GET", fmt.Sprintf("https://scapi.rockstargames.com/crew/byname?name=%s", name), nil)
 	if err != nil {
 		return CrewBasicInfo{}, err
 	}
 
 	req.Header.Set("X-Requested-With", "XMLHttpRequest")
+	req.Header.Set("Authorization", token)
 
 	resp, err := webClient.Do(req)
 	if err != nil {
